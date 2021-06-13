@@ -35,8 +35,8 @@ app.delete('/:id', async(req, res) => {
 app.post('/', async(req, res) => {
     const post = new Post(req.body);
     const results = await db.promise().query(
-        'INSERT INTO posts SET title = ?, lead = ?, content = ?, createdAt = ?',
-        [post.title, post.lead, post.content, post.createdAt]
+        'INSERT INTO posts SET ?',
+        [post]
     );
     res.status(200).send(results[0]);
 })
