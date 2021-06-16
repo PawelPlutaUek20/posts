@@ -46,9 +46,9 @@ exports.update = (req, res) => {
 };
 
 exports.delete = (req, res) => {
-    Customer.delete(
+    Post.delete(
         req.params.id, 
-        res.userData.id,
+        req.userData.id,
         (err, post) => {
             if (err) res.send(err);
             else res.send(post)
